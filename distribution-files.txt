@@ -3,6 +3,7 @@ AGENTS.md
 CLAUDE.md
 LICENSE
 README.md
+assets/workflow-overview.png
 distribution-files.txt
 install.ps1
 setup.bat

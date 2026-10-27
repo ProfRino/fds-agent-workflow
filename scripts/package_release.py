@@ -30,7 +30,12 @@ def public_files(root=ROOT):
 def scan(paths):
     findings = []
     for path in paths:
-        data = path.read_text(encoding='utf-8-sig')
+        # Images are explicitly allowlisted and visually reviewed. Scan their raw
+        # bytes for readable metadata too; never interpret binary PNG as UTF-8.
+        if path.suffix.lower() == '.png':
+            data = path.read_bytes().decode('latin-1')
+        else:
+            data = path.read_text(encoding='utf-8-sig')
         for label, pattern in PATTERNS.items():
             if re.search(pattern, data):
                 findings.append(f'{path.name}: {label}')
