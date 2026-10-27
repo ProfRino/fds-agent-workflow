@@ -1,0 +1,6 @@
+&HEAD CHID='example_room', TITLE='Public inert room runtime example' /
+&MESH IJK=10,10,10, XB=0,1,0,1,0,1 /
+&TIME T_END=1.0 /
+&DUMP DT_SLCF=0.2 /
+&SLCF PBZ=0.5, QUANTITY='TEMPERATURE' /
+&TAIL /

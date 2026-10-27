@@ -1,0 +1,13 @@
+.gitignore
+AGENTS.md
+CLAUDE.md
+LICENSE
+README.md
+distribution-files.txt
+install.ps1
+setup.bat
+scripts/workflow.py
+scripts/validate_fds.py
+scripts/package_release.py
+simulations/example_room/example_room.fds
+tests/test_workflow.py

@@ -1,0 +1,22 @@
+# Only explicitly reviewed public files are distributed.
+scripts/config.local.json
+scripts/*.bat
+visualization/
+runtime/
+archive/
+plots/
+codes/
+docs/private/
+simulations/*
+!simulations/example_room/
+simulations/example_room/*
+!simulations/example_room/example_room.fds
+*.pdf
+*.zip
+*.log
+.env*
+.claude/settings.local.json
+.opencode/
+.codex/
+__pycache__/
+*.pyc
