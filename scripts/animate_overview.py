@@ -18,10 +18,28 @@ def position(points, fraction):
         distance -= length
     return points[-1]
 
+def scripts_arrow(image):
+    """Trace the actual upper stroke, rather than approximate its bend."""
+    gray = image.convert('L')
+    points = []
+    for x in range(735, 1041):
+        stroke = []
+        for y in range(250, 367):
+            if gray.getpixel((x, y)) < 205:
+                stroke.append(y)
+            elif stroke:
+                break  # first contiguous stroke avoids the lower branch
+        if not stroke:
+            raise ValueError(f'Scripts arrow stroke missing at x={x}')
+        points.append((x, sum(stroke)/len(stroke)))
+    # Keep following the horizontal shaft through the arrowhead.
+    points.append((1061, points[-1][1]))
+    return points
+
 def main():
     base = Image.open(ROOT/'assets/workflow-overview.png').convert('L').convert('RGB')
     # Arrow centerlines in the original 1536 x 1024 artwork.
-    upper = [(735,361),(800,361)] + curve((800,361),(900,361),(900,267),(990,267)) + [(1061,267)]
+    upper = scripts_arrow(base)
     trunk = curve((735,361),(843,357),(869,381),(869,449)) + [(869,566)]
     left = trunk + curve((869,566),(869,606),(809,612),(743,612)) + curve((743,612),(700,612),(686,630),(686,665))
     right = trunk + curve((869,566),(869,609),(905,612),(954,612)) + curve((954,612),(1006,612),(1014,639),(1014,665))
