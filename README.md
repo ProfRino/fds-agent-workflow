@@ -4,7 +4,9 @@ A portable Windows workspace for FDS with Codex, OpenCode or Claude Code.
 The primary viewer is [ProfRino/fds-viewer](https://github.com/ProfRino/fds-viewer).
 FDS4 research experiments and private simulations are not included.
 
-![FDS Agent Workflow overview: shared agent instructions, local setup, generated batch scripts, simulations, and FDS Viewer.](assets/workflow-overview.png)
+![FDS Agent Workflow overview: red dots follow the arrows from shared instructions through setup to scripts, simulations and the viewer.](assets/workflow-overview.gif)
+
+[View the static diagram](assets/workflow-overview.png)
 
 ## Install
 

@@ -31,8 +31,8 @@ def scan(paths):
     findings = []
     for path in paths:
         # Images are explicitly allowlisted and visually reviewed. Scan their raw
-        # bytes for readable metadata too; never interpret binary PNG as UTF-8.
-        if path.suffix.lower() == '.png':
+        # bytes for readable metadata too; never interpret binary images as UTF-8.
+        if path.suffix.lower() in {'.png', '.gif'}:
             data = path.read_bytes().decode('latin-1')
         else:
             data = path.read_text(encoding='utf-8-sig')

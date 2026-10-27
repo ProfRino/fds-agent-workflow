@@ -4,6 +4,8 @@ CLAUDE.md
 LICENSE
 README.md
 assets/workflow-overview.png
+assets/workflow-overview.gif
+scripts/animate_overview.py
 distribution-files.txt
 install.ps1
 setup.bat
